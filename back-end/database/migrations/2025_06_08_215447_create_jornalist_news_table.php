@@ -11,12 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('news', function (Blueprint $table) {
-            $table->id();  #auto-incrementa e é chave primária
-            $table->string('title');
-            $table->string('link');
-            $table->string('description');
-            $table->date('date');
+        Schema::create('jornalist_news', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('jornalist_id')->constrained()->onDelete('cascade');
+            $table->foreignId('news_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -26,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('news');
+        Schema::dropIfExists('jornalists_news');
     }
 };

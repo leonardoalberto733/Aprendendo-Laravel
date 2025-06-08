@@ -20,19 +20,11 @@ class NewRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'author' => 'nullable|string|max:255', 
+            #mudar as validações aqui
         ];
     }
 
     /**
      * Prepare the data for validation.
      */
-    protected function prepareForValidation()
-    {
-        if (!$this->has('author') || $this->input('author') === null) {
-            $this->merge([
-                'author' => 'anonymous',
-            ]);
-        }
-    }
 }

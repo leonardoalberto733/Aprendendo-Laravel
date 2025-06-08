@@ -16,5 +16,9 @@ class VerifyCsrfToken extends Middleware
     'contact/*',
     'new',
     'new/*',
+    'jornalist',
+    'jornalist/*',
+    'image',
+    'image/*'
     ];
 }
